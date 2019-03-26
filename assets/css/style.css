@@ -1,0 +1,23 @@
+#startdisplay{
+    padding: 10px;
+    text-align:center;
+    margin: 0 auto;
+    height:200px;
+    width: 40%;
+    border: 2px solid black;
+}
+#startbutton{
+    margin:0 auto;
+}
+#gamescaffold{
+    display:none;
+}
+#winlossscreen{
+    display:none;
+}
+#wordtoguess{
+    text-decoration: underline dotted red;
+    color:grey;
+
+
+}

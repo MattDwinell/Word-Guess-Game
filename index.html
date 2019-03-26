@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+    <div id="startdisplay">
+        <h1> Hello! Press the button below to play hangman!</h1>
+        <h2>Make guesses by pressing letters.</h2>
+        <input id="startbutton" type="button" value="Begin"></input>
+    </div>
+    <div id=gamescaffold>
+        <h1>Hangman, Weird words from cool books edition!</h1>
+        <div>Number of wins: <span id="wincount"> </span> </div>
+        <div>Number of losses: <span id="losscount"></span></div>
+        <h3 >Guess the word: <p id="wordtoguess"> </p></h3>
+        <h3 id="lettersguessed">Letters already used:</h3>
+        <p id=guessesleft> Guesses remaining:</p>
+        
+    </div>
+    <div id=winlossscreen>
+        <h3>You win/Lose!</h3>
+        <p>The word was:</p>
+        <p>THe definition is:</p>
+        <p>Play again?</p>
+        <input id="restartbutton" type="button" value="try again"> </input>
+    </div>
+    <script src="assets\javascript\game.js">
+    </script>
+</body>
+</html>
