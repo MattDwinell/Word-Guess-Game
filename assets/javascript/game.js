@@ -1,9 +1,12 @@
-var wordBank = ["ossified","etiolated","exudations","shambolic","psoriatic","syncresis","syzygy","ineluctable","eructations","sciolist","imbroglio","agglutination","bathetic","pusillanimous","nacreous","morbific"]
-
+var wordBank = ["ossified","etiolated","exudations","shambolic","psoriatic","syncresis","syzygy","ineluctable","eructations","sciolist","imbroglio","agglutination","bathetic","pusillanimous","nacreous","morbific"] ;
+var letterPlaceHolder =[document.getElementById("letter0"), document.getElementById("letter1"),document.getElementById("letter2"),document.getElementById("letter3"),document.getElementById("letter4"),document.getElementById("letter5"),document.getElementById("letter6"),document.getElementById("letter7"),document.getElementById("letter8"),document.getElementById("letter9"),document.getElementById("letter10"),document.getElementById("letter11"),document.getElementById("letter12"),document.getElementById("letter13"),document.getElementById("letter14")];
+var userGuess = "";
 var winCount = 0;
 var lossCount = 0;
 var numGuesses = 0;
 var wordToGuess="";
+var lettersToGuess="";
+var lettersLeftToGuess = "";
 var winCountPlaceholder =document.getElementById("wincount");
 var lossCountPlaceholder = document.getElementById("losscount");
 var lettersGuessedPlaceholder = document.getElementById("lettersguessed");
@@ -16,15 +19,32 @@ function gameStart(){
          wordToGuess = wordBank[Math.floor(Math.random()*wordBank.length)];
         numGuesses = (wordToGuess.length + 5);
         wordPlaceHolder.textContent =(wordToGuess);
-        guessesPlaceholder.textContent = ("Number of guesses remaining: " + numGuesses );
+        lettersToGuess = wordToGuess;
+       lettersToGuess.split(" ");
+       lettersLeftToGuess = lettersToGuess;
+        guessesPlaceholder.textContent = ( numGuesses );
         lettersGuessedPlaceholder.textContent = ("Letters Used: none");
         winCountPlaceholder.textContent = (winCount);
         lossCountPlaceholder.textContent=(lossCount);
-console.log(numGuesses);
-console.log(wordToGuess);
-}
+        for (i=0 ; i<wordToGuess.length; i++){
+letterPlaceHolder[i].textContent = lettersToGuess[i];
+        }
+    }
 function game(){
-    console.log(wordToGuess);
+    userGuess = event.key;
+    for (i=0; i<wordToGuess.length; i++){
+        if (userGuess == lettersToGuess[i]){
+            letterPlaceHolder[i].style.color="green";
+
+        }
+    }
+        numGuesses -=1;
+        guessesPlaceholder.textContent = (numGuesses);
+    
+
+    console.log(letterPlaceHolder);
+    console.log(lettersToGuess);
+    
 }
 document.onkeyup = function(event){
     game();

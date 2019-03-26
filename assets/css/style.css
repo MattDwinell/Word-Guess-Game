@@ -21,3 +21,8 @@
 
 
 }
+.letter{
+    display:inline-block;
+    color:red;
+    text-decoration: underline dotted red;
+}
