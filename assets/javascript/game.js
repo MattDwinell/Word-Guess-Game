@@ -1,6 +1,8 @@
 var wordBank = ["ossified","etiolated","exudations","shambolic","psoriatic","syncretic","syzygy","ineluctable","eructations","sciolist","imbroglio","agglutination","bathetic","pusillanimous","nacreous","morbific","tumuli","sephardic","recrudescence","amanuensis","onanistic","wen","lethean"] ;
 var wordDefinitions = ["to have been turned into bone","to lose substance, to become feeble","fluids emitted by an organism through a pore or a wound","chaotic or disorganized","of psoriasis, characterized by itchiness and flaking skin","a union of two different religions","a pair of connected or corresponding things. Also, a connjuction or opposition, especially of the sun","inescapable, unable to be avoided","burps","someone who pretends to be knowledgeable or well-informed","an extremely confused, complicated, or embrassing situation","the clumping of particles","anticlimactic, dissapointing","cowardly, showing a lack of courage","pearlescent, having a color similiar to that of a pearl","disease causing","ancient burial mounds or barrows. the singular form is tumulus","Pertaining to a subset of Jews whose ancestors lived in Spain","the recurrence of an undesirable condition","a literary or artistic assitant, often one who copies manuscripts","pertaining to masturbation. pointless, self-absorbed, self-congratulatory","Nowadays known as a boil or swelling on the skin, it used to mean an extremely large or crowded city","Causing oblivion or forgetfulness of the past"]
 var letterPlaceHolder =[document.getElementById("letter0"), document.getElementById("letter1"),document.getElementById("letter2"),document.getElementById("letter3"),document.getElementById("letter4"),document.getElementById("letter5"),document.getElementById("letter6"),document.getElementById("letter7"),document.getElementById("letter8"),document.getElementById("letter9"),document.getElementById("letter10"),document.getElementById("letter11"),document.getElementById("letter12"),document.getElementById("letter13"),document.getElementById("letter14")];
+var leftPicture = document.getElementById("left");
+var rightPicture = document.getElementById("right");
 var userGuess = "";
 var winCount = 0;
 var lossCount = 0;
@@ -16,7 +18,6 @@ var winCountPlaceholder =document.getElementById("wincount");
 var lossCountPlaceholder = document.getElementById("losscount");
 var lettersGuessedPlaceholder = document.getElementById("lettersguessed");
 var guessesPlaceholder = document.getElementById("guessesleft");
-var wordPlaceHolder = document.getElementById("wordtoguess");
 document.getElementById("startbutton").addEventListener("click", gameStart);
 function gameStart(){
      repeat = false;
@@ -24,9 +25,13 @@ function gameStart(){
     correctGuesses =0;
     userGuesses =[];
     numGuesses=0;
+    leftPicture.style.paddingLeft = (0) + "%" ;
+    rightPicture.style.paddingRight = (0) + "%" ;
     for (i =0 ; i<letterPlaceHolder.length; i++){
         letterPlaceHolder[i].textContent ="";
-        letterPlaceHolder[i].style.color="red";
+        letterPlaceHolder[i].style.color="black";
+        letterPlaceHolder[i].style.borderBottom ="3px solid red";
+        
     }
     document.getElementById("winlossscreen").style.display="none";
     document.getElementById("startdisplay").style.display= "none";
@@ -35,7 +40,6 @@ function gameStart(){
     definition = wordDefinitions[wordChooser];
          wordToGuess = wordBank[wordChooser];
         numGuesses = (wordToGuess.length + 5);
-        wordPlaceHolder.textContent =(wordToGuess);
         lettersToGuess = wordToGuess;
        lettersToGuess.split(" ");
        lettersLeftToGuess = lettersToGuess;
@@ -45,6 +49,13 @@ function gameStart(){
         lossCountPlaceholder.textContent=(lossCount);
         for (i=0 ; i<wordToGuess.length; i++){
 letterPlaceHolder[i].textContent = lettersToGuess[i];
+
+        }
+        for (i=0; i<letterPlaceHolder.length; i ++){
+        if (letterPlaceHolder[i].textContent ==""){
+            letterPlaceHolder[i].style.border ="0";
+            letterPlaceHolder[i].style.display ="none";
+        }
         }
     }
 function game(){
@@ -55,13 +66,14 @@ function game(){
     lettersGuessedPlaceholder.textContent = userGuesses.join(" ");
     for (i=0; i<wordToGuess.length; i++){
         if (userGuess == lettersToGuess[i]){
-            letterPlaceHolder[i].style.color="green";
+            letterPlaceHolder[i].style.color="white";
 correctGuesses ++
         }
     }
         numGuesses -=1;
         guessesPlaceholder.textContent = (numGuesses);
-    
+    leftPicture.style.paddingLeft = (25/(numGuesses+1)) + "%" ;
+    rightPicture.style.paddingRight = (25/(numGuesses+1)) + "%" ;
     if ((correctGuesses >= wordToGuess.length) || (numGuesses == 0)){
         if (correctGuesses == wordToGuess.length){
         
@@ -76,6 +88,8 @@ correctGuesses ++
         document.getElementById("winlossscreen").style.display="block";
         document.getElementById("endword").textContent = wordToGuess;
         document.getElementById("definition").textContent = definition;
+        leftPicture.style.paddingLeft = (25) + "%" ;
+        rightPicture.style.paddingRight = (25) + "%" ;
     }
     
 }

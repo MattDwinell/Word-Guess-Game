@@ -1,3 +1,13 @@
+html{
+    box-sizing:border-box;
+    background-color:black;
+    color:white;
+}
+#winlossscreen{
+    margin:0 auto;
+    text-align:left;
+    width:30%;
+}
 #startdisplay{
     padding: 10px;
     text-align:center;
@@ -9,21 +19,63 @@
 #startbutton{
     margin:0 auto;
 }
+#usedwrapper{
+    font-size:20px;
+    width:45%;
+    float:right;
+}
+#guessesleft{
+    color:purple;
+    size: 40px;
+}
 #gamescaffold{
+    width: 66.6%;
+    float:right;
     display:none;
+}
+#maingame{
+    float:left;
+    width:45%;
+    margin: 0 auto;
+    text-align:center;
+    padding:5px;
 }
 #winlossscreen{
     display:none;
-}
-#wordtoguess{
-    text-decoration: underline dotted red;
-    color:grey;
-
-
+    font-size: 20px;
 }
 .letter{
+    margin: 0 auto;
+    height: auto;
+    width: 20px;
     display:inline-block;
-    color:red;
-    text-decoration: underline solid red;
+    color:black;
+   border-bottom: 3px solid red;
+    padding-left:2px;
+    padding-right:2px;
+    font-size: 30px;
+    
+}
+#left{
+    width:25%;
+    height:auto;
+   float:left;
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   max-height:55vh;
+   
+
+}
+#right{ float:right;
+    width: 25%;
+    height:auto;
+    position:fixed;
+    right:0px;
+    bottom:0px;
+    max-height:55vh;
+}
+#lettersguessed{
+    color:purple;
     
 }

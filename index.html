@@ -14,11 +14,12 @@
         <h2>Make guesses by pressing letters.</h2>
         <input id="startbutton" type="button" value="Begin"></input>
     </div>
-    <div id=gamescaffold>
+    <div id="gamescaffold">
+    <div id="maingame">
         <h1>Hangman, Weird words from cool books edition!</h1>
         <div>Number of wins: <span id="wincount"> </span> </div>
         <div>Number of losses: <span id="losscount"></span></div>
-        <h3 >Guess the word: <p id="wordtoguess">  </p></h3>
+        <h3 >Guess the word: </h3>
         <div id="letterWrap">
                 <p class="letter" id="letter0"></p>
                 <p class="letter" id="letter1"></p>
@@ -38,9 +39,12 @@
                 
 
         </div>
+    </div>
+        <div id="usedwrapper">
         <h3 >Letters already used: <span id="lettersguessed"></span> </h3>
         <p> Guesses remaining: <span id="guessesleft"></span> </p>
-        
+        </div>
+    
     </div>
     <div id= "winlossscreen">
         <h3 id="winorlose"></h3>
