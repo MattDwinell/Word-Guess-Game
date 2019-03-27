@@ -7,6 +7,8 @@ var numGuesses = 0;
 var wordToGuess="";
 var lettersToGuess="";
 var lettersLeftToGuess = "";
+var userGuesses = [];
+var correctGuesses = 0;
 var winCountPlaceholder =document.getElementById("wincount");
 var lossCountPlaceholder = document.getElementById("losscount");
 var lettersGuessedPlaceholder = document.getElementById("lettersguessed");
@@ -32,18 +34,26 @@ letterPlaceHolder[i].textContent = lettersToGuess[i];
     }
 function game(){
     userGuess = event.key;
+    userGuesses.push (userGuess);
+    lettersGuessedPlaceholder.textContent = userGuesses.join(" ");
     for (i=0; i<wordToGuess.length; i++){
         if (userGuess == lettersToGuess[i]){
             letterPlaceHolder[i].style.color="green";
-
+correctGuesses ++
         }
     }
         numGuesses -=1;
         guessesPlaceholder.textContent = (numGuesses);
     
 
-    console.log(letterPlaceHolder);
-    console.log(lettersToGuess);
+    console.log(userGuesses);
+    console.log(lettersLeftToGuess);
+    if ((correctGuesses >=wordToGuess.length) || (numGuesses <= 0)){
+        if (correctGuesses >=wordToGuess.length){
+        document.getElementById("gamescaffold").style.display ="none";
+        document.getElementById("winlossscreen").style.display="block";
+        }
+    }
     
 }
 document.onkeyup = function(event){
