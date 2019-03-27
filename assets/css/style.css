@@ -56,6 +56,10 @@ html{
     font-size: 30px;
     
 }
+#wincount, #losscount, #endword{
+    font-size:20px;
+color:purple;
+}
 #left{
     width:25%;
     height:auto;
@@ -77,5 +81,5 @@ html{
 }
 #lettersguessed{
     color:purple;
-    
+
 }
