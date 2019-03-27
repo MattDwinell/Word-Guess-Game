@@ -19,7 +19,9 @@ var lossCountPlaceholder = document.getElementById("losscount");
 var lettersGuessedPlaceholder = document.getElementById("lettersguessed");
 var guessesPlaceholder = document.getElementById("guessesleft");
 document.getElementById("startbutton").addEventListener("click", gameStart);
+
 function gameStart(){
+    letterPlaceHolder =[document.getElementById("letter0"), document.getElementById("letter1"),document.getElementById("letter2"),document.getElementById("letter3"),document.getElementById("letter4"),document.getElementById("letter5"),document.getElementById("letter6"),document.getElementById("letter7"),document.getElementById("letter8"),document.getElementById("letter9"),document.getElementById("letter10"),document.getElementById("letter11"),document.getElementById("letter12"),document.getElementById("letter13"),document.getElementById("letter14")];
      repeat = false;
     userGuess="";
     correctGuesses =0;
@@ -28,6 +30,7 @@ function gameStart(){
     leftPicture.style.paddingLeft = (0) + "%" ;
     rightPicture.style.paddingRight = (0) + "%" ;
     for (i =0 ; i<letterPlaceHolder.length; i++){
+        letterPlaceHolder[i].style.display ="inline-block";
         letterPlaceHolder[i].textContent ="";
         letterPlaceHolder[i].style.color="black";
         letterPlaceHolder[i].style.borderBottom ="3px solid red";
@@ -49,14 +52,15 @@ function gameStart(){
         lossCountPlaceholder.textContent=(lossCount);
         for (i=0 ; i<wordToGuess.length; i++){
 letterPlaceHolder[i].textContent = lettersToGuess[i];
-
         }
-        for (i=0; i<letterPlaceHolder.length; i ++){
+        
+       for (i=0; i<letterPlaceHolder.length; i++){
         if (letterPlaceHolder[i].textContent ==""){
             letterPlaceHolder[i].style.border ="0";
-            letterPlaceHolder[i].style.display ="none";
+             letterPlaceHolder[i].style.display ="none";
+    
         }
-        }
+    }
     }
 function game(){
     userGuess = event.key;
