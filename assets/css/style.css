@@ -25,7 +25,7 @@ html{
     float:right;
 }
 #guessesleft{
-    color:purple;
+    color:white;
     size: 40px;
 }
 #gamescaffold{
@@ -50,7 +50,7 @@ html{
     width: 20px;
     display:inline-block;
     color:black;
-   border-bottom: 3px solid red;
+   border-bottom: 3px solid white;
     padding-left:2px;
     padding-right:2px;
     font-size: 30px;
@@ -80,6 +80,6 @@ color:purple;
     max-height:55vh;
 }
 #lettersguessed{
-    color:purple;
+    color:white;
 
 }
